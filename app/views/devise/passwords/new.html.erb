@@ -2,7 +2,7 @@
   <%= image_tag 'pokemon_logo' %>
   <h2 class="form-title">Forgot your password?</h2>
 
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'w-full md:w-96 flex flex-col gap-4'  }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'w-full md:w-96 flex flex-col gap-4' }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
