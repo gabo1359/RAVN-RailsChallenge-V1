@@ -33,4 +33,5 @@ en:
   sidebar:
     pokemons: Pokemons
     trainers: Trainers
+    settings: Settings
     logout: Log Out

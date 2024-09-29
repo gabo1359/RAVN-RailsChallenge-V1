@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
   private
 
   def layout_by_resource
-    if devise_controller?
+    if controller_name == "registrations" && action_name == "edit"
+      "application"
+    elsif devise_controller?
       "devise"
     else
       "application"
