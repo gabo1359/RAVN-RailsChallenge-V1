@@ -1,0 +1,11 @@
+@layer components {
+  .table-header {
+    @apply text-gray-800 font-medium text-lg;
+  }
+  .table-button {
+    @apply flex gap-2 items-center px-4 py-2 rounded-lg hover:shadow-md;
+  }
+  .table-badge {
+    @apply w-fit px-4 py-1 text-center rounded-2xl text-sm;
+  }
+}
