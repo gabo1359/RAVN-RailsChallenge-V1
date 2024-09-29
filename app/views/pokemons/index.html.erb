@@ -7,5 +7,18 @@
     <h6 class="table-header w-1/5"><%= t("pokemons.index.table.type") %></h6>
     <h6 class="table-header w-1/5 lg:w-[30%]"><%= t("pokemons.index.table.actions") %></h6>
   </div>
-  <%= render @pokemons %>
+
+  <%= turbo_frame_tag "posts-#{@pagy.page}" do %>
+    <div class="flex flex-col gap-4">
+      <%= render @pokemons %>
+
+      <% if @pagy.next %>
+        <%= turbo_frame_tag "posts-#{@pagy.next}" do %>
+          <div class="mt-2 text-center">
+            <%= link_to t("shared.view_more"), pokemons_path(page: @pagy.next), class: "primary-button" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

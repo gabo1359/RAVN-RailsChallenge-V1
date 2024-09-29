@@ -41,6 +41,7 @@ en:
   shared:
     edit: Edit
     delete: Delete
+    view_more: View more
   pokemons:
     new: New Pokemon
     create: Create Pokemon
