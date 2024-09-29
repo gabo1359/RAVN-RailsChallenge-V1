@@ -4,12 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  .sidebar-button {
+    @apply flex items-center gap-2 text-sm font-medium text-gray-700 px-8 py-4 mr-8 rounded-r-full hover:text-white hover:bg-gradient-to-b hover:from-fuchsia-400 hover:to-purple-700;
+  }
+  .sidebar-button-active {
+    @apply text-white bg-gradient-to-b from-fuchsia-400 to-purple-700;
   }
 }
-
-*/

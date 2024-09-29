@@ -1,0 +1,9 @@
+<div class="fixed w-full bg-white border-b border-gray-100 flex items-center justify-between px-8 py-2">
+  <div class="flex items-center gap-4">
+    <%= link_to root_path do %>
+      <%= image_tag "pokeball", class: "w-12 h-12" %>
+    <% end %>
+    <h5 class="text-lg font-semibold"><%= t("navbar.title") %></h5>
+  </div>
+  <p class="text-sm text-gray-700 font-medium"><%= current_user.email %></p>
+</div>

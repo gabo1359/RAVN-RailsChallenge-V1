@@ -18,14 +18,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="flex">
-    <%= render "layouts/navbar" %>
-    <div class="mt-[65px] h-[calc(100vh_-_65px)] flex w-full">
-      <%= render "layouts/sidebar" %>
-      <main class="flex flex-col bg-gradient-to-r from-purple-50 w-full p-8 overflow-auto">
-        <%= render "layouts/flash" %>
-        <%= yield %>
-      </main>
-    </div>
+  <body class="bg-gradient-to-r from-purple-50">
+    <main class="container mx-auto mt-28 mb-12 px-5 flex">
+      <%= render "layouts/flash" %>
+      <%= yield %>
+    </main>
   </body>
 </html>
