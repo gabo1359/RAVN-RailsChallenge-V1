@@ -1,28 +1,28 @@
 <div class="flex flex-col w-full items-center">
-  <%= image_tag 'pokemon_logo' %>
+  <%= image_tag "pokemon_logo" %>
   <h2 class="form-title">Change your password</h2>
 
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'w-full md:w-96 flex flex-col gap-4' }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "w-full md:w-96 flex flex-col gap-4" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= f.hidden_field :reset_password_token %>
 
     <div class="field">
       <div class="flex justify-between items-center">
-        <div><%= f.label :password, "New password", class: 'form-label' %></div>
+        <div><%= f.label :password, "New password", class: "form-label" %></div>
         <% if @minimum_password_length %>
             <em class="text-xs">(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
       </div>
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-input' %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-input" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, "Confirm new password", class: 'form-label' %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-input' %>
+      <%= f.label :password_confirmation, "Confirm new password", class: "form-label" %><br>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-input" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Change my password", class: 'form-button' %>
+      <%= f.submit "Change my password", class: "form-button" %>
     </div>
   <% end %>
 

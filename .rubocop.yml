@@ -8,3 +8,5 @@ Style/StringLiterals:
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: false
 
+Layout/TrailingEmptyLines:
+  Enabled: false
