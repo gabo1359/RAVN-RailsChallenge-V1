@@ -28,6 +28,9 @@
 #       enabled: "ON"
 
 en:
+  time:
+    formats:
+      default: "%d/%m/%Y"
   navbar:
     title: Pokedex
   sidebar:
@@ -35,3 +38,17 @@ en:
     trainers: Trainers
     settings: Settings
     logout: Log Out
+  shared:
+    edit: Edit
+    delete: Delete
+    view_more: View more
+  pokemons:
+    new: New Pokemon
+    create: Create Pokemon
+    index:
+      title: Pokemon's
+      table:
+        date: Date
+        name: Name
+        type: Type
+        actions: Actions

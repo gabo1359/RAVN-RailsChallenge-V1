@@ -1,4 +1,5 @@
 @import './shared/form.css';
+@import './shared/table.css';
 
 @tailwind base;
 @tailwind components;
@@ -10,5 +11,11 @@
   }
   .sidebar-button-active {
     @apply text-white bg-gradient-to-b from-fuchsia-400 to-purple-700;
+  }
+  .title {
+    @apply text-2xl font-bold;
+  }
+  .primary-button {
+    @apply text-sm px-8 py-2 rounded-full text-white bg-gradient-to-b from-fuchsia-400 to-purple-700 hover:opacity-45;
   }
 }

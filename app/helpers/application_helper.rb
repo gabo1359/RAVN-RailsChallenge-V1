@@ -1,6 +1,8 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def show_svg(path)
-    File.open("app/assets/images/icons/#{path}", "rb") do |file|
+    File.open("app/assets/images/icons/#{path}.svg", "rb") do |file|
       raw file.read
     end
   end
