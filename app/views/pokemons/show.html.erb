@@ -14,19 +14,27 @@
       <dl class="divide-y divide-gray-100">
         <div class="card-detail-container">
           <dt class="card-term"><%= t("pokemons.show.main_technique") %></dt>
-          <dd class="card-value"><%= @pokemon.main_technique %></dd>
+          <dd class="card-value <%= "text-gray-300" if @pokemon.main_technique.blank? %>">
+            <%= @pokemon.main_technique.blank? ? t("shared.not_provided") : @pokemon.main_technique %>
+          </dd>
         </div>
         <div class="card-detail-container">
           <dt class="card-term"><%= t("pokemons.show.country") %></dt>
-          <dd class="card-value"><%= @pokemon.country %></dd>
+          <dd class="card-value <%= "text-gray-300" if @pokemon.country.blank? %>">
+            <%= country_selected(@pokemon.country) || t("shared.not_provided") %>
+          </dd>
         </div>
         <div class="card-detail-container">
           <dt class="card-term"><%= t("pokemons.show.type") %></dt>
-          <dd class="card-value"><%= @pokemon.pokemon_type %></dd>
+          <dd class="card-value">
+            <p class="table-badge <%= badge_classes_for(@pokemon.pokemon_type) %>"><%= @pokemon.pokemon_type %></p>
+          </dd>
         </div>
         <div class="card-detail-container">
           <dt class="card-term"><%= t("pokemons.show.description") %></dt>
-          <dd class="card-value"><%= simple_format(@pokemon.description) %></dd>
+          <dd class="card-value <%= "text-gray-300" if @pokemon.description.blank? %>">
+            <%= @pokemon.description.blank? ? t("shared.not_provided") : simple_format(@pokemon.description) %>
+          </dd>
         </div>
       </dl>
     </div>

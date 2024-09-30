@@ -29,4 +29,8 @@ module PokemonsHelper
   def pokemon_types_for_select
     Pokemon.pokemon_types.keys.map { |type| [type.capitalize, type] }
   end
+
+  def total_pokemons
+    Pokemon.count
+  end
 end

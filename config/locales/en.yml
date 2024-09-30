@@ -43,6 +43,7 @@ en:
     delete: Delete
     view_more: View more
     go_back: Go back
+    not_provided: Not provided
   pokemons:
     new: New Pokemon
     create: Create Pokemon
