@@ -2,7 +2,8 @@ class PokemonsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @pagy, @pokemons = pagy(Pokemon.order(:name), limit: 4)
+    pokemons = Pokemons::Index.call(params)
+    @pagy, @pokemons = pagy(pokemons, limit: 4)
   end
 
   def new

@@ -52,3 +52,8 @@ en:
         name: Name
         type: Type
         actions: Actions
+        no_match: There are no matches.
+        empty: There are no any pokemons yet.
+      search: Search pokemon
+      type: Type
+      add_pokemon: Add Pokemon
