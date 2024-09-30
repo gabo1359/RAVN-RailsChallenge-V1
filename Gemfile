@@ -63,3 +63,5 @@ end
 
 gem "devise", "~> 4.9"
 gem "pagy", "~> 9.0"
+
+gem "countries", "~> 7.0"
