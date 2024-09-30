@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def needs_devise_layout?
-    return false if controller_name == "registrations" && action_name == "edit"
+    return false if controller_name == "registrations" && %w[edit update].include?(action_name)
 
     devise_controller?
   end

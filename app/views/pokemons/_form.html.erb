@@ -1,0 +1,27 @@
+  <%= form_for(@pokemon, html: { class: "w-full md:w-2/3 flex flex-col gap-4" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: @pokemon %>
+
+    <div class="field">
+      <%= f.label :name, class: "form-label" %><br>
+      <%= f.text_field :name, autofocus: true, class: "form-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :main_technique, class: "form-label" %><br>
+      <%= f.text_field :main_technique, class: "form-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :pokemon_type, class: "form-label" %><br>
+      <%= f.select :pokemon_type, pokemon_types_for_select, {}, class: "form-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description, class: "form-label" %><br>
+      <%= f.text_area :description, class: "form-input" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit @pokemon.new_record? ? t("pokemons.create") : t("pokemons.update"), class: "form-button" %>
+    </div>
+  <% end %>
