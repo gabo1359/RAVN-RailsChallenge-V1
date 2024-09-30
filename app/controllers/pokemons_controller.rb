@@ -27,7 +27,7 @@ class PokemonsController < ApplicationController
   def update
     if @pokemon.update(pokemon_params)
       flash[:success] = t("pokemons.update_success")
-      redirect_to pokemons_path
+      redirect_to pokemon_path(@pokemon)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,7 +45,7 @@ class PokemonsController < ApplicationController
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:name, :main_technique, :pokemon_type, :description)
+    params.require(:pokemon).permit(:name, :main_technique, :country, :pokemon_type, :description)
   end
 
   def set_pokemon

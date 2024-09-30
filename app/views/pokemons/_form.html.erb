@@ -12,13 +12,18 @@
     </div>
 
     <div class="field">
+      <%= f.label :country, class: "form-label" %><br>
+      <%= f.select :country, countries_for_select, { include_blank: true }, class: "form-input" %>
+    </div>
+
+    <div class="field">
       <%= f.label :pokemon_type, class: "form-label" %><br>
       <%= f.select :pokemon_type, pokemon_types_for_select, {}, class: "form-input" %>
     </div>
 
     <div class="field">
       <%= f.label :description, class: "form-label" %><br>
-      <%= f.text_area :description, class: "form-input" %>
+      <%= f.text_area :description, class: "form-input h-24" %>
     </div>
 
     <div class="actions">
