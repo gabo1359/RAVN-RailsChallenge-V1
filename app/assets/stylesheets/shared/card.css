@@ -1,0 +1,11 @@
+@layer components {
+  .card-detail-container {
+    @apply px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0;
+  }
+  .card-term {
+    @apply text-sm font-medium leading-6 text-gray-900;
+  }
+  .card-value {
+    @apply mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0;
+  }
+}

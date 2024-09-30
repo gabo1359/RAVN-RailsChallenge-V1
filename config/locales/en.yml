@@ -42,9 +42,11 @@ en:
     edit: Edit
     delete: Delete
     view_more: View more
+    go_back: Go back
   pokemons:
     new: New Pokemon
     create: Create Pokemon
+    update: Update Pokemon
     index:
       title: Pokemon's
       table:
@@ -57,3 +59,14 @@ en:
       search: Search pokemon
       type: Type
       add_pokemon: Add Pokemon
+    create_success: Pokemon successfully created.
+    update_success: Pokemon successfully updated.
+    destroy_success: Pokemon successfully deleted.
+    show:
+      card_title: Pokemon Information
+      card_description: Details
+      name: Name
+      main_technique: Main technique
+      country: Country
+      type: Type
+      description: Description

@@ -1,5 +1,5 @@
 module Pokemons
-  class Index < BaseService
+  class Data < BaseService
     def initialize(params)
       @search = params[:search]
       @pokemon_type = params[:pokemon_type]

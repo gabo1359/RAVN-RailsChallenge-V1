@@ -25,4 +25,8 @@ module PokemonsHelper
   def badge_classes_for(pokemon_type)
     BADGE_CLASSES[pokemon_type.to_sym] || BADGE_CLASSES[:unknown]
   end
+
+  def pokemon_types_for_select
+    Pokemon.pokemon_types.keys.map { |type| [type.capitalize, type] }
+  end
 end

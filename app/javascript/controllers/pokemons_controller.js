@@ -5,7 +5,7 @@ import { requester } from "../utils/requester";
 export default class extends Controller {
   static targets = ["searchInput", "typeInput"];
 
-  static values = { url: String }
+  static values = { searchUrl: String }
 
   connect() {
     this.searchInputTarget.addEventListener("input", debounce(() => this.lookForPokemons()));
@@ -13,7 +13,7 @@ export default class extends Controller {
   }
 
   async lookForPokemons() {
-    const url = `${this.urlValue}?search=${this.searchInputTarget.value}&pokemon_type=${this.typeInputTarget.value}`;
+    const url = `${this.searchUrlValue}?search=${this.searchInputTarget.value}&pokemon_type=${this.typeInputTarget.value}`;
     requester(url);
   }
 }

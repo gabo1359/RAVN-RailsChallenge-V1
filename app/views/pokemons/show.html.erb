@@ -1,0 +1,34 @@
+<%= content_for(:go_back) do %>
+  <%= render "shared/go_back", path: pokemons_path %>
+<% end %>
+
+<div class="flex flex-col w-full items-center">
+  <h2 class="form-title"><%= @pokemon.name.capitalize %></h2>
+
+  <div class="mt-8 bg-white p-8 rounded-2xl shadow-md flex flex-col gap-4 w-4/5">
+    <div class="px-4 sm:px-0">
+      <h3 class="text-base font-semibold leading-7 text-gray-900"><%= t("pokemons.show.card_title") %></h3>
+      <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500"><%= t("pokemons.show.card_description") %></p>
+    </div>
+    <div class="mt-6 border-t border-gray-100">
+      <dl class="divide-y divide-gray-100">
+        <div class="card-detail-container">
+          <dt class="card-term"><%= t("pokemons.show.main_technique") %></dt>
+          <dd class="card-value"><%= @pokemon.main_technique %></dd>
+        </div>
+        <div class="card-detail-container">
+          <dt class="card-term"><%= t("pokemons.show.country") %></dt>
+          <dd class="card-value"><%= @pokemon.country %></dd>
+        </div>
+        <div class="card-detail-container">
+          <dt class="card-term"><%= t("pokemons.show.type") %></dt>
+          <dd class="card-value"><%= @pokemon.pokemon_type %></dd>
+        </div>
+        <div class="card-detail-container">
+          <dt class="card-term"><%= t("pokemons.show.description") %></dt>
+          <dd class="card-value"><%= simple_format(@pokemon.description) %></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>

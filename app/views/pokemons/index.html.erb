@@ -8,11 +8,11 @@
   <% end %>
 </div>
 
-<div data-controller="pokemons" data-pokemons-value="<%= pokemons_path %>" class="mt-8 flex items-center justify-between gap-8">
+<div data-controller="pokemons" data-pokemons-search-url-value="<%= search_pokemons_path %>" class="mt-8 flex items-center justify-between gap-8">
   <%= text_field_tag :search, params[:search], placeholder: t("pokemons.index.search"), class: "form-input", data: { pokemons_target: "searchInput" }, autocomplete: "off" %>
   <div class="flex items-center gap-2">
     <p class="text-sm text-gray-600"><%= t("pokemons.index.type") %></p>
-    <%= select_tag :pokemon_type, options_for_select([["All", "all"]].concat(Pokemon.pokemon_types.keys.map { |type| [type.capitalize, type] }), params[:pokemon_type]), class: "w-32 md:w-52 form-input", data: { pokemons_target: "typeInput" } %>
+    <%= select_tag :pokemon_type, options_for_select([["All", "all"]].concat(pokemon_types_for_select), params[:pokemon_type]), class: "w-32 md:w-52 form-input", data: { pokemons_target: "typeInput" } %>
   </div>
 </div>
 

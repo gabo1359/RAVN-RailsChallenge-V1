@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   root "pokemons#index"
 
   scope path_names: { new: 'add' } do
-    resources :pokemons
+    resources :pokemons do
+      collection do
+        get :search
+      end
+    end
   end
 end

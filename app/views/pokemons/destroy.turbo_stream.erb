@@ -1,0 +1,5 @@
+<%= turbo_stream.remove @pokemon %>
+
+<%= turbo_stream.replace "flash" do %>
+  <%= render "layouts/flash" %>
+<% end %>
