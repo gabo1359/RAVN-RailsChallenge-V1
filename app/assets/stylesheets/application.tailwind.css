@@ -18,4 +18,7 @@
   .primary-button {
     @apply flex gap-2 items-center text-sm px-4 py-2 rounded-full text-white bg-gradient-to-b from-fuchsia-400 to-purple-700 hover:opacity-45;
   }
+  .secondary-button {
+    @apply flex items-center gap-2 text-purple-700 hover:underline;
+  }
 }

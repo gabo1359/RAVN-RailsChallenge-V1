@@ -24,6 +24,7 @@
       <%= render "layouts/sidebar" %>
       <main class="flex flex-col bg-gradient-to-r from-fuchsia-50 to-purple-50 w-full p-8 overflow-auto">
         <%= render "layouts/flash" %>
+        <%= yield :go_back %>
         <%= yield %>
       </main>
     </div>
