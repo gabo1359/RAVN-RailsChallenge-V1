@@ -10,6 +10,6 @@ class Pokemon < ApplicationRecord
   private
 
   def valid_countries
-    ISO3166::Country.all.map(&:alpha2) << ""
+    ISO3166::Country.all.map(&:alpha2) + ["", nil]
   end
 end

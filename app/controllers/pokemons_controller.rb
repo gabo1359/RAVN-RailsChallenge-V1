@@ -35,9 +35,7 @@ class PokemonsController < ApplicationController
 
   def destroy
     @pokemon.destroy
-    respond_to do |format|
-      format.turbo_stream { flash.now[:success] = t("pokemons.destroy_success") }
-    end
+    flash.now[:success] = t("pokemons.destroy_success")
   end
 
   def search; end
