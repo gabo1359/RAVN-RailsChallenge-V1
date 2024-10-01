@@ -5,9 +5,22 @@
 # below each fixture, per the syntax in the comments below
 #
   admin:
-    email: admin@example.com
+    email: admin@pokedex.com
     encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+    role: Users::Admin
 
-  user:
-    email: user@example.com
+  ash:
+    email: ash@pokedex.com
     encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+    first_name: Ash
+    last_name: Ketchum
+    country: PE
+    role: Users::Trainer
+
+  misti:
+    email: trainer@pokedex.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+    first_name: Misti
+    last_name: Waters
+    country: PE
+    role: Users::Trainer

@@ -1,7 +1,7 @@
 require "test_helper"
 
 class PokemonTest < ActiveSupport::TestCase
-  class Validations < ActiveSupport::TestCase
+  class Validations < PokemonTest
     setup do
       @pokemon = Pokemon.new
     end
