@@ -1,5 +1,4 @@
 class PokemonsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_data, only: %i[index search]
   before_action :set_pokemon, only: %i[show edit update destroy]
 

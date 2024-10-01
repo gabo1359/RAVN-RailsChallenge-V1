@@ -1,0 +1,39 @@
+<div class="flex justify-between items-center">
+  <h1 class="title"><%= t("trainers.index.title") %></h1>
+  <%= link_to new_trainer_path, class: "primary-button" do %>
+    <div class="w-4 h-4">
+      <%= show_svg "plus" %>
+    </div>
+    <p><%= t("trainers.index.add_trainer") %></p>
+  <% end %>
+</div>
+
+<div data-controller="trainers" data-trainers-search-url-value="<%= search_trainers_path %>" class="mt-8 flex items-center justify-between gap-8">
+  <%= text_field_tag :search, params[:search], placeholder: t("trainers.index.search"), class: "form-input", data: { trainers_target: "searchInput" }, autocomplete: "off" %>
+</div>
+
+<% if total_trainers.positive? %>
+  <div class="mt-8 bg-white p-8 rounded-2xl shadow-md flex flex-col gap-4">
+    <div class="flex px-4">
+      <h6 class="table-header w-[30%] lg:w-1/5"><%= t("trainers.index.table.created") %></h6>
+      <h6 class="table-header w-[30%]"><%= t("trainers.index.table.full_name") %></h6>
+      <h6 class="table-header w-1/5"><%= t("trainers.index.table.email") %></h6>
+      <h6 class="table-header w-1/5 lg:w-[30%]"><%= t("trainers.index.table.actions") %></h6>
+    </div>
+
+    <%= turbo_frame_tag "trainers-container" do %>
+      <%= render "trainers_container" %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="mt-8 flex flex-col items-center gap-4 bg-white p-8 rounded-2xl shadow-md">
+    <%= image_tag "ditto_sad", class: "w-24" %>
+    <p class="text-gray-500 text-sm"><%= t("trainers.index.table.empty") %></p>
+    <%= link_to new_trainer_path, class: "primary-button" do %>
+      <div class="w-4 h-4">
+        <%= show_svg "plus" %>
+      </div>
+      <p><%= t("trainers.index.add_trainer") %></p>
+    <% end %>
+  </div>
+<% end %>

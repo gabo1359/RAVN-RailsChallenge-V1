@@ -1,0 +1,39 @@
+  <%= form_for(@trainer, as: :trainer, url: @trainer.new_record? ? trainers_path : trainer_path(@trainer), method: @trainer.new_record? ? :post : :patch, html: { class: "w-full md:w-2/3 flex flex-col gap-4" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: @trainer %>
+
+    <% if @trainer.new_record? %>
+      <div class="field">
+        <%= f.label :email, class: "form-label" %><br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, class: "form-label" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-input" %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :first_name, class: "form-label" %><br>
+      <%= f.text_field :first_name, class: "form-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name, class: "form-label" %><br>
+      <%= f.text_field :last_name, class: "form-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar, class: "form-label" %><br>
+      <%= f.file_field :avatar, class: "form-input p-[3px]" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :country, class: "form-label" %><br>
+      <%= f.select :country, countries_for_select, {}, class: "form-input" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit @trainer.new_record? ? t("trainers.create") : t("trainers.update"), class: "form-button" %>
+    </div>
+  <% end %>

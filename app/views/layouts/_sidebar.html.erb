@@ -1,12 +1,12 @@
 <div class="min-w-64 bg-white border-r border-gray-100 hidden md:flex flex-col justify-between py-8">
   <div class="flex flex-col gap-4">
-    <%= link_to "/", class: "sidebar-button #{"sidebar-button-active" if controller_name == "pokemons"}" do %>
+    <%= link_to pokemons_path, class: "sidebar-button #{"sidebar-button-active" if controller_name == "pokemons"}" do %>
       <div class="w-4 h-4">
         <%= show_svg "pokemon" %>
       </div>
       <span><%= t("sidebar.pokemons") %></span>
     <% end %>
-    <%= link_to "/", class: "sidebar-button" do %>
+    <%= link_to trainers_path, class: "sidebar-button #{"sidebar-button-active" if controller_name == "trainers"}" do %>
       <div class="w-4 h-4">
         <%= show_svg "trainer" %>
       </div>

@@ -51,7 +51,7 @@ en:
     index:
       title: Pokemon's
       table:
-        date: Date
+        created: Created
         name: Name
         type: Type
         actions: Actions
@@ -71,3 +71,28 @@ en:
       country: Country
       type: Type
       description: Description
+  trainers:
+    new: New Trainer
+    create: Create Trainer
+    update: Update Trainer
+    index:
+      title: Trainers
+      add_trainer: Add Trainer
+      search: Search trainer
+      table:
+        created: Created
+        full_name: Full Name
+        email: Email
+        actions: Actions
+        no_match: There are no matches.
+        empty: There are no any trainers yet.
+    create_success: Trainer successfully created.
+    update_success: Trainer successfully updated.
+    destroy_success: Trainer successfully deleted.
+    show:
+      card_title: Trainer Information
+      card_description: Details
+      first_name: First Name
+      last_name: Last Name
+      email: Email
+      country: Country
