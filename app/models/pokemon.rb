@@ -1,7 +1,7 @@
 class Pokemon < ApplicationRecord
   include Countriable
 
-  has_many :catches
+  has_many :catches, dependent: :destroy
   has_many :users, through: :catches
 
   validates :name, :pokemon_type, presence: true

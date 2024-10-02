@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :validatable
 
-  has_many :catches
+  has_many :catches, dependent: :destroy
   has_many :pokemons, through: :catches
 
   self.inheritance_column = :role

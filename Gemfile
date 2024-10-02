@@ -70,3 +70,4 @@ gem "pagy", "~> 9.0"
 gem "countries", "~> 7.0"
 gem "faker"
 gem "pundit", "~> 2.4"
+gem "whenever", require: false

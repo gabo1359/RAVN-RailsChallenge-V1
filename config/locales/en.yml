@@ -11,6 +11,10 @@ en:
         type: Type
       title: My pokemons
   mailer:
+    inactivity_reminder:
+      description: It's been %{days} days since you last caught a Pokémon! Don't forget to catch more and continue your adventure!
+      happy_hunting: Happy hunting!
+      subject: We miss you!
     pokemon_catched:
       alias: 'Alias: '
       description: You just caught %{pokemon}.

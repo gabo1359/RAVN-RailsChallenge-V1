@@ -4,4 +4,10 @@ class UserMailer < ApplicationMailer
     @catch = catch
     mail(to: user.email, subject: t("mailer.pokemon_catched.subject"))
   end
+
+  def inactivity_reminder(user, days)
+    @user = user
+    @days = days
+    mail(to: user.email, subject: t("mailer.inactivity_reminder.subject"))
+  end
 end
