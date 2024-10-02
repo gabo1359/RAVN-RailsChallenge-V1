@@ -1,7 +1,7 @@
 module Admin
   class TrainersController < ApplicationController
     before_action :set_data, only: %i[index search]
-    before_action :set_user, only: %i[show edit update destroy]
+    before_action :set_user, only: %i[edit update destroy]
 
     def index; end
 
@@ -20,7 +20,9 @@ module Admin
       end
     end
 
-    def show; end
+    def show
+      @trainer = policy_scope(Users::Trainer, policy_scope_class: TrainerPolicy::Scope).find(params[:id])
+    end
 
     def edit; end
 
@@ -53,6 +55,10 @@ module Admin
     def set_data
       trainers = Admin::Trainers::Data.call(params)
       @pagy, @trainers = pagy(trainers, limit: 4)
+    end
+
+    def authorize_user!
+      authorize Users::Trainer, policy_class: TrainerPolicy
     end
   end
 end

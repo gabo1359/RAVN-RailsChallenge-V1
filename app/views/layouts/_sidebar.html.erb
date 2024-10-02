@@ -6,17 +6,20 @@
       </div>
       <span><%= t("sidebar.pokemons") %></span>
     <% end %>
-    <%= link_to trainers_path, class: "sidebar-button #{"sidebar-button-active" if controller_name == "trainers"}" do %>
-      <div class="w-4 h-4">
-        <%= show_svg "trainer" %>
-      </div>
-      <span><%= t("sidebar.trainers") %></span>
-    <% end %>
-    <%= link_to "", class: "sidebar-button #{"sidebar-button-active" if controller_name == "registrations"}" do %>
-      <div class="w-4 h-4">
-        <%= show_svg "profile" %>
-      </div>
-      <span><%= t("sidebar.profile") %></span>
+    <% if current_user.admin? %>
+      <%= link_to trainers_path, class: "sidebar-button #{"sidebar-button-active" if controller_name == "trainers"}" do %>
+        <div class="w-4 h-4">
+          <%= show_svg "trainer" %>
+        </div>
+        <span><%= t("sidebar.trainers") %></span>
+      <% end %>
+    <% else %>
+      <%= link_to trainer_path(current_user), class: "sidebar-button #{"sidebar-button-active" if controller_name == "trainers"}" do %>
+        <div class="w-4 h-4">
+          <%= show_svg "profile" %>
+        </div>
+        <span><%= t("sidebar.profile") %></span>
+      <% end %>
     <% end %>
   </div>
   <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "sidebar-button" do %>

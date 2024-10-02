@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "flash" do %>
   <% flash.each do |flash_type, message| %>
     <div data-controller="flash"
-        class="z-10 flex items-center gap-2 absolute px-4 py-2 border border-solid rounded-md animate-bounce <%= flash_classes_for(flash_type) %> <%= needs_devise_layout? ? "top-6 left-6" : "bottom-6 right-6" %>">
+        class="z-10 flex items-center gap-2 absolute px-4 py-2 border border-solid rounded-md animate-bounce <%= flash_classes_for(flash_type) %> <%= devise_controller? ? "top-6 left-6" : "bottom-6 right-6" %>">
       <div class="w-4 h-4">
         <%= show_svg flash_type %>
       </div>

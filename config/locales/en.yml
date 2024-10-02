@@ -44,6 +44,8 @@ en:
     view_more: View more
     go_back: Go back
     not_provided: Not provided
+    not_authorized: You are not authorized.
+    not_found: You cannot see this record.
   pokemons:
     new: New Pokemon
     create: Create Pokemon

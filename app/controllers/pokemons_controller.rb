@@ -53,4 +53,8 @@ class PokemonsController < ApplicationController
     pokemons = Pokemons::Data.call(params)
     @pagy, @pokemons = pagy(pokemons, limit: 4)
   end
+
+  def authorize_user!
+    authorize Pokemon
+  end
 end
