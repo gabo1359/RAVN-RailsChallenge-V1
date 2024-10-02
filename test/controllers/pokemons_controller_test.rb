@@ -101,23 +101,16 @@ class PokemonsControllerTest < ActionDispatch::IntegrationTest
 
     test "#new" do
       get new_pokemon_url
-      assert_response :success
+      assert_response :redirect
+      assert_redirected_to root_path
     end
 
-    test "#create with success" do
-      assert_difference("Pokemon.count") do
+    test "#create" do
+      assert_no_difference("Pokemon.count") do
         post pokemons_url, params: { pokemon: { name: "Ditto", pokemon_type: "normal" } }
       end
-      assert_redirected_to pokemons_url
-      assert_equal flash[:success], I18n.t("pokemons.create_success")
-    end
-
-    test "#create with failure" do
-      assert_no_difference("Pokemon.count") do
-        post pokemons_url, params: { pokemon: { name: "", pokemon_type: "normal" } }
-      end
-      assert_response :unprocessable_entity
-      assert_template :new
+      assert_response :redirect
+      assert_redirected_to root_path
     end
 
     test "#show" do
@@ -127,30 +120,25 @@ class PokemonsControllerTest < ActionDispatch::IntegrationTest
 
     test "#edit" do
       get edit_pokemon_url(@pikachu)
-      assert_response :success
+      assert_response :redirect
+      assert_redirected_to root_path
     end
 
-    test "#update with success" do
+    test "#update" do
       patch pokemon_url(@pikachu), params: { pokemon: { name: "Updated Pikachu" } }
-      assert_redirected_to pokemon_url(@pikachu)
-      assert_equal flash[:success], I18n.t("pokemons.update_success")
-    end
-
-    test "#update with failure" do
-      patch pokemon_url(@pikachu), params: { pokemon: { name: "" } }
-      assert_response :unprocessable_entity
-      assert_template :edit
+      assert_response :redirect
+      assert_redirected_to root_path
     end
 
     test "#destroy" do
-      assert_difference("Pokemon.count", -1) do
+      assert_no_difference("Pokemon.count") do
         delete pokemon_url(@pikachu, format: :turbo_stream)
       end
-      assert_response :success
-      assert_equal flash[:success], I18n.t("pokemons.destroy_success")
+      assert_response :redirect
+      assert_redirected_to root_path
     end
 
-    test "#search by name" do
+    test "#search" do
       get search_pokemons_url(format: :turbo_stream), params: { search: "Pikachu" }
       assert_response :success
       assert_equal 1, assigns["pokemons"].count
