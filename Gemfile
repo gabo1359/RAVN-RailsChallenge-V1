@@ -53,6 +53,7 @@ group :development do
 
   gem "letter_opener_web"
   gem "erb_lint", require: false
+  gem "i18n-tasks", "~> 1.0.14"
 end
 
 group :test do
