@@ -7,6 +7,16 @@
       </div>
       <p><%= t("pokemons.index.add_pokemon") %></p>
     <% end %>
+  <% else %>
+    <div data-controller="catch-pokemon">
+      <%= button_to "", class: "primary-button", data: { action: "click->catch-pokemon#showCatchModal" } do %>
+        <div class="w-4 h-4">
+          <%= show_svg "catch" %>
+        </div>
+        <p><%= t("pokemons.index.catch_pokemon") %></p>
+      <% end %>
+      <%= render "catch_modal" %>
+    </div>
   <% end %>
 </div>
 

@@ -30,6 +30,10 @@ module PokemonsHelper
     Pokemon.pokemon_types.keys.map { |type| [type.capitalize, type] }
   end
 
+  def pokemons_for_select
+    Pokemon.ordered.pluck(:name, :id)
+  end
+
   def total_pokemons
     Pokemon.count
   end
