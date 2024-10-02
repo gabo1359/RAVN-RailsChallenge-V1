@@ -1,5 +1,15 @@
 ---
 en:
+  catches:
+    create_success: Pokemon successfully catched.
+    index:
+      empty: You do not have any pokemons yet.
+      table:
+        alias: Alias
+        catched_at: Catched
+        pokemon: Pokemon
+        type: Type
+      title: My pokemons
   navbar:
     title: Pokedex
   pokemons:
@@ -11,7 +21,7 @@ en:
       catch:
         alias: Alias
         choose: Which Pokemon do you want to catch?
-        title: Catch
+        title: Catch it!
       catch_pokemon: Catch Pokemon
       search: Search pokemon
       table:
@@ -21,7 +31,7 @@ en:
         name: Name
         no_match: There are no matches.
         type: Type
-      title: Pokemon's
+      title: Pokedex
       type: Type
     new: New Pokemon
     show:
@@ -44,7 +54,8 @@ en:
     view_more: View more
   sidebar:
     logout: Log Out
-    pokemons: Pokemons
+    my_pokemons: My Pokemons
+    pokedex: Pokedex
     profile: Profile
     trainers: Trainers
   time:

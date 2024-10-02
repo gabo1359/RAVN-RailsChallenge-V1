@@ -1,0 +1,10 @@
+<div class="border border-gray-300 rounded-lg p-4 flex items-center">
+  <div class="w-2/5 flex flex-col gap-2">
+    <p class="text-md text-gray-700 font-medium"><%= catch.pokemon.name %></p>
+    <p class="text-sm text-gray-500"><%= catch.alias.blank? ? "-" : catch.alias %></p>
+  </div>
+  <div class="w-1/5 flex justify-center">
+    <p class="table-badge <%= badge_classes_for(catch.pokemon.pokemon_type) %>"><%= catch.pokemon.pokemon_type %></p>
+  </div>
+  <p class="w-2/5 text-center text-sm text-gray-500"><%= l(catch.created_at) %></p>
+</div>

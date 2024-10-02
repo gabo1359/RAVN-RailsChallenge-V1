@@ -1,0 +1,19 @@
+<div class="absolute w-full h-full top-0 left-0 flex justify-center" data-catch-pokemon-target="catchModal">
+  <div class="absolute w-full h-full bg-gray-400 opacity-60" data-action="click->catch-pokemon#removeCatchModal"></div>
+  <div class="absolute mt-36 bg-white shadow-md rounded-2xl p-12 w-4/5 md:w-[520px] flex flex-col items-center">
+    <div class="w-full flex justify-end">
+      <div class="w-6 h-6 cursor-pointer" data-action="click->catch-pokemon#removeCatchModal">
+        <%= show_svg "x" %>
+      </div>
+    </div>
+    <%= image_tag "pokemons", class: "h-48" %>
+    <p class="text-sm text-purple-700 font-bold text-center"><%= t("pokemons.index.catch.choose") %></p>
+    <%= form_for(@catch, html: { class: "mt-6 w-4/5 flex flex-col items-center gap-4", data: { turbo_frame: "_top" } }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: @catch %>
+
+      <%= f.select :pokemon_id, pokemons_for_select, {}, class: "form-input" %>
+      <%= f.text_field :alias, class: "form-input", placeholder: t("pokemons.index.catch.alias") %>
+      <%= f.submit t("pokemons.index.catch.title"), class: "primary-button" %>
+    <% end %>
+  </div>
+</div>

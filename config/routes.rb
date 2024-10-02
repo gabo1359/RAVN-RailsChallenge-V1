@@ -29,5 +29,7 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    resources :catches, only: %i[new create index]
   end
 end
