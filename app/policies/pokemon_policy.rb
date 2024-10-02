@@ -1,11 +1,4 @@
 class PokemonPolicy < ApplicationPolicy
-  attr_reader :user, :pokemon
-
-  def initialize(user, pokemon)
-    @user = user
-    @pokemon = pokemon
-  end
-
   def index?
     true
   end

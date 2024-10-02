@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :redirect_to_root
 
   before_action :authenticate_user!
-  before_action :authorize_user!
+  before_action :authorize_user!, unless: -> { devise_controller? }
 
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern

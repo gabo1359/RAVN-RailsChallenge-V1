@@ -1,12 +1,5 @@
 module Admin
   class TrainerPolicy < ApplicationPolicy
-    attr_reader :user, :trainer
-
-    def initialize(user, trainer)
-      @user = user
-      @trainer = trainer
-    end
-
     def index?
       user.admin?
     end
