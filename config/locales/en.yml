@@ -10,6 +10,12 @@ en:
         pokemon: Pokemon
         type: Type
       title: My pokemons
+  mailer:
+    pokemon_catched:
+      alias: 'Alias: '
+      description: You just caught %{pokemon}.
+      subject: Pokemon caught!
+    title: Hello %{full_name}!
   navbar:
     title: Pokedex
   pokemons:

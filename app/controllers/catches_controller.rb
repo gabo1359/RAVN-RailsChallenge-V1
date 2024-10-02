@@ -13,6 +13,7 @@ class CatchesController < ApplicationController
     @catch.user = current_user
 
     if @catch.save
+      UserMailer.pokemon_catched(current_user, @catch).deliver_later
       flash[:success] = t("catches.create_success")
       redirect_to catches_path
     else
