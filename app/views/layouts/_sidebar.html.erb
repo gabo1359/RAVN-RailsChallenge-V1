@@ -1,22 +1,31 @@
 <div class="min-w-64 bg-white border-r border-gray-100 hidden md:flex flex-col justify-between py-8">
   <div class="flex flex-col gap-4">
-    <%= link_to "/", class: "sidebar-button #{"sidebar-button-active" if controller_name == "pokemons"}" do %>
+    <%= link_to pokemons_path, class: "sidebar-button #{"sidebar-button-active" if controller_name == "pokemons"}" do %>
       <div class="w-4 h-4">
-        <%= show_svg "pokemon" %>
+        <%= show_svg "pokedex" %>
       </div>
-      <span><%= t("sidebar.pokemons") %></span>
+      <span><%= t("sidebar.pokedex") %></span>
     <% end %>
-    <%= link_to "/", class: "sidebar-button" do %>
-      <div class="w-4 h-4">
-        <%= show_svg "trainer" %>
-      </div>
-      <span><%= t("sidebar.trainers") %></span>
-    <% end %>
-    <%= link_to edit_user_registration_path, class: "sidebar-button #{"sidebar-button-active" if controller_name == "registrations"}" do %>
-      <div class="w-4 h-4">
-        <%= show_svg "profile" %>
-      </div>
-      <span><%= t("sidebar.profile") %></span>
+    <% if current_user.admin? %>
+      <%= link_to trainers_path, class: "sidebar-button #{"sidebar-button-active" if controller_name == "trainers"}" do %>
+        <div class="w-4 h-4">
+          <%= show_svg "trainer" %>
+        </div>
+        <span><%= t("sidebar.trainers") %></span>
+      <% end %>
+    <% else %>
+      <%= link_to catches_path, class: "sidebar-button #{"sidebar-button-active" if controller_name == "catches"}" do %>
+        <div class="w-4 h-4">
+          <%= show_svg "pokemon" %>
+        </div>
+        <span><%= t("sidebar.my_pokemons") %></span>
+      <% end %>
+      <%= link_to trainer_path(current_user), class: "sidebar-button #{"sidebar-button-active" if controller_name == "trainers"}" do %>
+        <div class="w-4 h-4">
+          <%= show_svg "profile" %>
+        </div>
+        <span><%= t("sidebar.profile") %></span>
+      <% end %>
     <% end %>
   </div>
   <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "sidebar-button" do %>

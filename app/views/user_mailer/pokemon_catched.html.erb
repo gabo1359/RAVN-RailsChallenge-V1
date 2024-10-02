@@ -1,0 +1,7 @@
+<h3><%= t("mailer.title", full_name: @user.full_name) %></h3>
+
+<p><%= t("mailer.pokemon_catched.description", pokemon: @catch.pokemon.name) %></p>
+
+<% unless @catch.alias.blank? %>
+  <em><%= t("mailer.pokemon_catched.alias") %><%= @catch.alias %></em>
+<% end %>

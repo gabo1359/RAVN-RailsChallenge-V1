@@ -1,10 +1,19 @@
 <div class="flex justify-between items-center">
   <h1 class="title"><%= t("pokemons.index.title") %></h1>
-  <%= link_to new_pokemon_path, class: "primary-button" do %>
-    <div class="w-4 h-4">
-      <%= show_svg "plus" %>
+  <% if current_user.admin? %>
+    <%= link_to new_pokemon_path, class: "primary-button" do %>
+      <div class="w-4 h-4">
+        <%= show_svg "plus" %>
+      </div>
+      <p><%= t("pokemons.index.add_pokemon") %></p>
+    <% end %>
+  <% else %>
+    <div data-controller="catch-pokemon">
+      <%= form_for(:catch, url: new_catch_path(format: :turbo_stream), method: :get) do |f| %>
+        <%= f.submit t("pokemons.index.catch_pokemon"), class: "primary-button" %>
+      <% end %>
+      <%= turbo_frame_tag "catch-modal" %>
     </div>
-    <p><%= t("pokemons.index.add_pokemon") %></p>
   <% end %>
 </div>
 
@@ -16,13 +25,15 @@
   </div>
 </div>
 
-<% if @pokemons.any? %>
+<% if total_pokemons.positive? %>
   <div class="mt-8 bg-white p-8 rounded-2xl shadow-md flex flex-col gap-4">
     <div class="flex px-4">
-      <h6 class="table-header w-[30%] lg:w-1/5"><%= t("pokemons.index.table.date") %></h6>
-      <h6 class="table-header w-[30%]"><%= t("pokemons.index.table.name") %></h6>
-      <h6 class="table-header w-1/5"><%= t("pokemons.index.table.type") %></h6>
-      <h6 class="table-header w-1/5 lg:w-[30%]"><%= t("pokemons.index.table.actions") %></h6>
+      <h6 class="table-header <%= current_user.admin? ? "w-[30%]" : "w-2/5" %>"><%= t("pokemons.index.table.created") %></h6>
+      <h6 class="table-header <%= current_user.admin? ? "w-1/4" : "w-2/5" %>"><%= t("pokemons.index.table.name") %></h6>
+      <h6 class="table-header <%= current_user.admin? ? "w-1/5 md:w-[15%]" : "w-1/5 text-center" %>"><%= t("pokemons.index.table.type") %></h6>
+      <% if current_user.admin? %>
+        <h6 class="table-header w-1/4 md:w-[30%]"><%= t("pokemons.index.table.actions") %></h6>
+      <% end %>
     </div>
 
     <%= turbo_frame_tag "pokemons-container" do %>
@@ -33,11 +44,13 @@
   <div class="mt-8 flex flex-col items-center gap-4 bg-white p-8 rounded-2xl shadow-md">
     <%= image_tag "pokeball_empty", class: "w-24" %>
     <p class="text-gray-500 text-sm"><%= t("pokemons.index.table.empty") %></p>
-    <%= link_to new_pokemon_path, class: "primary-button" do %>
-      <div class="w-4 h-4">
-        <%= show_svg "plus" %>
-      </div>
-      <p><%= t("pokemons.index.add_pokemon") %></p>
+    <% if current_user.admin? %>
+      <%= link_to new_pokemon_path, class: "primary-button" do %>
+        <div class="w-4 h-4">
+          <%= show_svg "plus" %>
+        </div>
+        <p><%= t("pokemons.index.add_pokemon") %></p>
+      <% end %>
     <% end %>
   </div>
 <% end %>

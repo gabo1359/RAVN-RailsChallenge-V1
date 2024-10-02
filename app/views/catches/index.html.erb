@@ -1,0 +1,24 @@
+<h1 class="title"><%= t("catches.index.title") %></h1>
+
+<% if @catches.any? %>
+  <div class="mt-8 bg-white p-8 rounded-2xl shadow-md flex flex-col gap-4">
+    <div class="flex px-4">
+      <h6 class="table-header w-2/5"><%= t("catches.index.table.pokemon") %></h6>
+      <h6 class="table-header text-center w-1/5"><%= t("catches.index.table.type") %></h6>
+      <h6 class="table-header text-center w-2/5"><%= t("catches.index.table.catched_at") %></h6>
+    </div>
+
+    <%= render "catches_container" %>
+  </div>
+<% else %>
+  <div class="mt-8 flex flex-col items-center gap-4 bg-white p-8 rounded-2xl shadow-md">
+    <%= image_tag "ditto_sad", class: "w-24" %>
+    <p class="text-gray-500 text-sm"><%= t("catches.index.empty") %></p>
+    <%= link_to pokemons_path, class: "primary-button" do %>
+      <div class="w-4 h-4">
+        <%= show_svg "plus" %>
+      </div>
+      <p><%= t("pokemons.index.catch_pokemon") %></p>
+    <% end %>
+  </div>
+<% end %>

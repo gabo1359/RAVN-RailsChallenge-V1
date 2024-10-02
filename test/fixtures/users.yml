@@ -4,8 +4,23 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+  admin:
+    email: admin@pokedex.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+    role: Users::Admin
+
+  ash:
+    email: ash@pokedex.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+    first_name: Ash
+    last_name: Ketchum
+    country: PE
+    role: Users::Trainer
+
+  misti:
+    email: trainer@pokedex.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+    first_name: Misti
+    last_name: Waters
+    country: PE
+    role: Users::Trainer

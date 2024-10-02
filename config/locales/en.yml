@@ -1,72 +1,98 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
+---
 en:
+  catches:
+    create_success: Pokemon successfully catched.
+    index:
+      empty: You do not have any pokemons yet.
+      table:
+        alias: Alias
+        catched_at: Catched
+        pokemon: Pokemon
+        type: Type
+      title: My pokemons
+  mailer:
+    inactivity_reminder:
+      description: It's been %{days} days since you last caught a Pokémon! Don't forget to catch more and continue your adventure!
+      happy_hunting: Happy hunting!
+      subject: We miss you!
+    pokemon_catched:
+      alias: 'Alias: '
+      description: You just caught %{pokemon}.
+      subject: Pokemon caught!
+    title: Hello %{full_name}!
+  navbar:
+    title: Pokedex
+  pokemons:
+    create: Create Pokemon
+    create_success: Pokemon successfully created.
+    destroy_success: Pokemon successfully deleted.
+    index:
+      add_pokemon: Add Pokemon
+      catch:
+        alias: Alias
+        choose: Which Pokemon do you want to catch?
+        title: Catch it!
+      catch_pokemon: Catch Pokemon
+      search: Search pokemon
+      table:
+        actions: Actions
+        created: Created
+        empty: There are no any pokemons yet.
+        name: Name
+        no_match: There are no matches.
+        type: Type
+      title: Pokedex
+      type: Type
+    new: New Pokemon
+    show:
+      card_description: Details
+      card_title: Pokemon Information
+      country: Country
+      description: Description
+      main_technique: Main technique
+      name: Name
+      type: Type
+    update: Update Pokemon
+    update_success: Pokemon successfully updated.
+  shared:
+    delete: Delete
+    edit: Edit
+    go_back: Go back
+    not_authorized: You are not authorized.
+    not_found: You cannot see this record.
+    not_provided: Not provided
+    view_more: View more
+  sidebar:
+    logout: Log Out
+    my_pokemons: My Pokemons
+    pokedex: Pokedex
+    profile: Profile
+    trainers: Trainers
   time:
     formats:
       default: "%d/%m/%Y"
-  navbar:
-    title: Pokedex
-  sidebar:
-    pokemons: Pokemons
-    trainers: Trainers
-    settings: Settings
-    logout: Log Out
-  shared:
-    edit: Edit
-    delete: Delete
-    view_more: View more
-    go_back: Go back
-  pokemons:
-    new: New Pokemon
-    create: Create Pokemon
-    update: Update Pokemon
+  trainers:
+    create: Create Trainer
+    create_success: Trainer successfully created.
+    destroy_success: Trainer successfully deleted.
     index:
-      title: Pokemon's
+      add_trainer: Add Trainer
+      search: Search trainer
       table:
-        date: Date
-        name: Name
-        type: Type
         actions: Actions
+        created: Created
+        email: Email
+        empty: There are no any trainers yet.
+        full_name: Full Name
         no_match: There are no matches.
-        empty: There are no any pokemons yet.
-      search: Search pokemon
-      type: Type
-      add_pokemon: Add Pokemon
-    create_success: Pokemon successfully created.
-    update_success: Pokemon successfully updated.
-    destroy_success: Pokemon successfully deleted.
+      title: Trainers
+    new: New Trainer
     show:
-      card_title: Pokemon Information
       card_description: Details
-      name: Name
-      main_technique: Main technique
+      card_title: Trainer Information
       country: Country
-      type: Type
-      description: Description
+      email: Email
+      first_name: First Name
+      last_name: Last Name
+    update: Update Trainer
+    update_success: Trainer successfully updated.

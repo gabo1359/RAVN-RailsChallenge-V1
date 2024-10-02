@@ -1,0 +1,27 @@
+<% if @trainers.any? %>
+  <%= turbo_frame_tag "trainers-page-#{@pagy.page}" do %>
+    <div class="flex flex-col gap-4">
+      <% @trainers.each do |trainer| %>
+        <%= render "trainer", trainer: trainer %>
+      <% end %>
+
+      <% if @pagy.next %>
+        <%= turbo_frame_tag "trainers-page-#{@pagy.next}" do %>
+          <div class="mt-2 flex justify-center">
+            <%= link_to trainers_path(page: @pagy.next, search: params[:search]), class: "primary-button" do %>
+              <div class="w-4 h-4">
+                <%= show_svg "arrow_down" %>
+              </div>
+              <p><%= t("shared.view_more") %></p>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="mt-8 flex flex-col items-center gap-4">
+    <%= image_tag "trainer_sad", class: "w-24" %>
+    <p class="text-gray-500 text-sm"><%= t("trainers.index.table.no_match") %></p>
+  </div>
+<% end %>

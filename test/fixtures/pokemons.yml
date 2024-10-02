@@ -1,15 +1,29 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  main_technique: MyString
-  country: MyString
-  type: 1
-  description: MyText
+pikachu:
+  name: Pikachu
+  main_technique: Thunderbolt
+  country: PE
+  pokemon_type: electric
+  description: An electric-type Pokémon known for its ability to generate electricity and its loyalty to its Trainer. Pikachu's tail acts as a lightning rod, storing electricity.
 
-two:
-  name: MyString
-  main_technique: MyString
-  country: MyString
-  type: 1
-  description: MyText
+squirtle:
+  name: Squirtle
+  main_technique: Water Gun
+  country: US
+  pokemon_type: water
+  description: A small turtle Pokémon that can spray water from its mouth.
+
+bulbasaur:
+  name: Bulbasaur
+  main_technique: Vine Whip
+  country: JP
+  pokemon_type: grass
+  description: A grass-type Pokémon with a plant bulb on its back that grows as it ages.
+
+charmander:
+  name: Charmander
+  main_technique: Flamethrower
+  country: FR
+  pokemon_type: fire
+  description: A fire-type Pokémon known for the flame on the tip of its tail, which burns brighter when it's healthy.

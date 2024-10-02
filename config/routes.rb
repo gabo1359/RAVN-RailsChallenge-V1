@@ -21,5 +21,15 @@ Rails.application.routes.draw do
         get :search
       end
     end
+
+    scope module: :admin do
+      resources :trainers do
+        collection do
+          get :search
+        end
+      end
+    end
+
+    resources :catches, only: %i[new create index]
   end
 end

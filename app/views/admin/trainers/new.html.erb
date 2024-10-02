@@ -1,0 +1,9 @@
+<%= content_for(:go_back) do %>
+  <%= render "shared/go_back", path: trainers_path %>
+<% end %>
+
+<div class="flex flex-col w-full items-center">
+  <h2 class="form-title"><%= t("trainers.new") %></h2>
+
+  <%= render "form" %>
+</div>

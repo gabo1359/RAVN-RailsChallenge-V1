@@ -17,4 +17,12 @@ module ApplicationHelper
       "border-green-500 bg-green-50 text-green-600"
     end
   end
+
+  def countries_for_select
+    ISO3166::Country.all.map { |country| [country.iso_short_name, country.alpha2] }
+  end
+
+  def country_selected(alpha2)
+    ISO3166::Country[alpha2&.to_sym]
+  end
 end

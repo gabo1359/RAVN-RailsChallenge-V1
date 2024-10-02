@@ -16,7 +16,7 @@ module Pokemons
     attr_reader :search, :pokemon_type
 
     def data
-      @pokemons = Pokemon.order("LOWER(name)")
+      @pokemons = Pokemon.ordered
     end
 
     def search_by_type

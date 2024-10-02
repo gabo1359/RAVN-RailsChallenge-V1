@@ -12,8 +12,16 @@ export default class extends Controller {
     this.typeInputTarget.addEventListener("change", () => this.lookForPokemons());
   }
 
-  async lookForPokemons() {
+  lookForPokemons() {
+    this.updateUrlParams();
     const url = `${this.searchUrlValue}?search=${this.searchInputTarget.value}&pokemon_type=${this.typeInputTarget.value}`;
     requester(url);
+  }
+
+  updateUrlParams() {
+    const queryParams = new URLSearchParams(window.location.search);
+    queryParams.set("search", this.searchInputTarget.value);
+    queryParams.set("pokemon_type", this.typeInputTarget.value);
+    history.replaceState(null, null, `?${queryParams.toString()}`);
   }
 }

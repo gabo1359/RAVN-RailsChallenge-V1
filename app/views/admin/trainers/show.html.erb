@@ -1,0 +1,44 @@
+<% if current_user.admin? %>
+  <%= content_for(:go_back) do %>
+    <%= render "shared/go_back", path: trainers_path %>
+  <% end %>
+<% end %>
+
+<div class="flex flex-col w-full items-center relative">
+  <div class="mt-4 md:m-0 border border-purple-700 shadow-md md:absolute top-0 right-[10%] w-36 h-36 md:w-24 md:h-24 p-3 bg-white rounded-full flex items-center justify-center">
+    <% if @trainer.avatar.attached? %>
+      <%= image_tag @trainer.avatar %>
+    <% else %>
+      <%= image_tag "missing", class: "opacity-50" %>
+    <% end %>
+  </div>
+
+  <h2 class="form-title"><%= @trainer.full_name %></h2>
+
+  <div class="md:mt-8 bg-white p-8 rounded-2xl shadow-md flex flex-col gap-4 w-4/5">
+    <div class="px-4 sm:px-0">
+      <h3 class="text-base font-semibold leading-7 text-gray-900"><%= t("trainers.show.card_title") %></h3>
+      <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500"><%= t("trainers.show.card_description") %></p>
+    </div>
+    <div class="mt-6 border-t border-gray-100">
+      <dl class="divide-y divide-gray-100">
+        <div class="card-detail-container">
+          <dt class="card-term"><%= t("trainers.show.first_name") %></dt>
+          <dd class="card-value"><%= @trainer.first_name %></dd>
+        </div>
+        <div class="card-detail-container">
+          <dt class="card-term"><%= t("trainers.show.last_name") %></dt>
+          <dd class="card-value"><%= @trainer.last_name %></dd>
+        </div>
+        <div class="card-detail-container">
+          <dt class="card-term"><%= t("trainers.show.email") %></dt>
+          <dd class="card-value"><%= @trainer.email %></dd>
+        </div>
+        <div class="card-detail-container">
+          <dt class="card-term"><%= t("trainers.show.country") %></dt>
+          <dd class="card-value"><%= country_selected(@trainer.country) %></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>

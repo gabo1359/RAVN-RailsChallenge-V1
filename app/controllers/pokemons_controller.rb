@@ -1,5 +1,4 @@
 class PokemonsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_data, only: %i[index search]
   before_action :set_pokemon, only: %i[show edit update destroy]
 
@@ -27,7 +26,7 @@ class PokemonsController < ApplicationController
   def update
     if @pokemon.update(pokemon_params)
       flash[:success] = t("pokemons.update_success")
-      redirect_to pokemons_path
+      redirect_to pokemon_path(@pokemon)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,9 +34,7 @@ class PokemonsController < ApplicationController
 
   def destroy
     @pokemon.destroy
-    respond_to do |format|
-      format.turbo_stream { flash.now[:success] = t("pokemons.destroy_success") }
-    end
+    flash.now[:success] = t("pokemons.destroy_success")
   end
 
   def search; end
@@ -45,7 +42,7 @@ class PokemonsController < ApplicationController
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:name, :main_technique, :pokemon_type, :description)
+    params.require(:pokemon).permit(:name, :main_technique, :image, :country, :pokemon_type, :description)
   end
 
   def set_pokemon
@@ -55,5 +52,9 @@ class PokemonsController < ApplicationController
   def set_data
     pokemons = Pokemons::Data.call(params)
     @pagy, @pokemons = pagy(pokemons, limit: 4)
+  end
+
+  def authorize_user!
+    authorize Pokemon
   end
 end
