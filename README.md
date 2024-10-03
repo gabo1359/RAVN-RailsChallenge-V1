@@ -4,12 +4,13 @@
 
 <br />
 
-Welcome to the Pokedex App, a dynamic web application designed for Pokémon trainers! This app allows trainers to explore a comprehensive database of Pokemon and catch their favorites.
+Welcome to the Pokedex App, a dynamic web application designed for Pokemon trainers! This app allows trainers to explore a comprehensive database of Pokemon and catch their favorites.
 
 Table of Contents:
 
 <ol>
   <li><a href="#features">Features</a></li>
+  <li><a href="#demo">Demo</a></li>
   <li>
     <a href="#getting-started">Getting Started</a>
     <ul>
@@ -26,6 +27,19 @@ Table of Contents:
 * *Catch Pokemon:* Users can catch Pokemon and add them to their personal collection with a friendly alias for each catch.
 * *User Authentication:* Secure registration and login process to keep user data safe.
 * *User-Friendly Interface:* Intuitive design for a seamless experience while exploring the world of Pokemon.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Demo <a name="demo"></a>
+
+<b>Admin flow:</b>
+
+```sh
+email: admin@pokedex.com
+password: 123123
+```
+
+<b>Trainer flow:</b>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -119,3 +133,4 @@ bundle exec rails test
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
