@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: pokemons
+#
+#  id             :integer          not null, primary key
+#  name           :string           not null
+#  main_technique :string
+#  country        :string
+#  pokemon_type   :integer          default("normal"), not null
+#  description    :text
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
 require "test_helper"
 
 class PokemonTest < ActiveSupport::TestCase
