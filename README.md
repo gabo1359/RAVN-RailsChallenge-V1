@@ -39,7 +39,11 @@ email: admin@pokedex.com
 password: 123123
 ```
 
+https://github.com/user-attachments/assets/28934144-fe3b-43a0-b763-ddee12790541
+
 <b>Trainer flow:</b>
+
+https://github.com/user-attachments/assets/e31e6f73-9ee1-4991-b778-e65cfabbf9bb
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
