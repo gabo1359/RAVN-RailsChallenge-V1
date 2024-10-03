@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path: "", path_names: { sign_in: "login" }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pokemons#index"
 
-  scope path_names: { new: 'add' } do
+  scope path_names: { new: "add" } do
     resources :pokemons do
       collection do
         get :search
