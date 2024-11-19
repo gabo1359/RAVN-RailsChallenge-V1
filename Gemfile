@@ -67,7 +67,7 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
-gem "pagy", "~> 9.0"
+gem "pagy", "~> 9.3"
 gem "countries", "~> 7.0"
 gem "faker"
 gem "pundit", "~> 2.4"
